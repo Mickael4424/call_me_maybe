@@ -1,0 +1,28 @@
+[project]
+name = "call_me_maybe"
+version = "0.1.0"
+requires-python = ">=3.10,<3.15"
+dependencies = [
+    "numpy>=2.2.6",
+    "pydantic>=2.13.4",
+    "torch",
+    "transformers>=4.40.0",
+    "huggingface-hub>=0.20.0",
+    "llm-sdk",
+    "flake8>=7.3.0",
+    "mypy>=2.1.0",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+llm-sdk = { workspace = true }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.workspace]
+members = [
+    "llm_sdk",
+]
